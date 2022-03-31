@@ -16,7 +16,7 @@ The database is updated on two occassions.  Every time a new user is created the
 - The cart and logged in user are implemented with Session variables.
 
 ## ER Diagram
-![](ER Diagram.png)
+![](ERDiagram.png)
 
 ## SQL Schema Diagram
-![](SQL Schema Diagram.png)
+![](SQLSchemaDiagram.png)
