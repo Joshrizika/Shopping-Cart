@@ -1,5 +1,3 @@
-
-
 ## Features
 The website is able to display products being sold in several categories. A user visiting the web store can search for products (i.e., search for a specific item name and display that item or similar items) or display all items in a certain category. The website displays the available quantity and price for each product.
 
@@ -15,5 +13,5 @@ The database is updated on two occassions.  Every time a new user is created the
 - Python Flask is used for all the server side scripting.
 - The database is created using sqlite3.  
 - HTML and CSS are used for all front end development.  
-- The cart is implemented with Session variables.
+- The cart and logged in user are implemented with Session variables.
 
