@@ -15,3 +15,6 @@ The database is updated on two occassions.  Every time a new user is created the
 - HTML and CSS are used for all front end development.  
 - The cart and logged in user are implemented with Session variables.
 
+## ER Diagram
+
+## SQL Schema Diagram
