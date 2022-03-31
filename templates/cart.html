@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<head> 
+	<title>Shopping Cart</title>
+  <link href="../static/home.css" rel="stylesheet" type="text/css" />
+</head>
+  <body>
+    <div class="navbar">
+      <a href="/">Products</a>
+      <a href="category_Armor">Armor</a>
+      <a href="category_Food">Food</a>
+      <a href="category_Enchanted Books">Enchanted Books</a>
+      <div class="dropdown">
+        <button class="dropbtn">Account</button>
+        <div class="dropdown-content">
+          <a href="logout">Log Out</a>
+          <a href="cart">Shopping Cart</a>
+          <a href="orders">Orders</a>
+        </div>
+      </div>
+    </div>
+    {% if "email" in session %}
+    <h1>{{session['fname']}}'s Shopping Cart</h1>
+    {% endif %}
+    <p><strong>{{error_message}}</strong></p>
+    <table>
+      <tr>
+        <th>Item</th>
+        <th>Price</th>
+        <th>Quantity</th>
+      </tr>
+     
+      {% for product in cart_products: %}
+       <tr>
+          <td>
+            <div class="item">
+            <img src="/static/images/{{product['id']}}.jpg" style="width:100px;height:100px;">
+            <span>{{product['name']}}</span>
+            </div>
+          </td>
+        <td style="text-align:center"> {{product['price']}}<img src="/static/images/Emerald.jpg" style="width:20px;height:20px;margin-bottom:-4px"></td>
+        <td style="text-align:center"><form action="/cart">
+          <input style="width:3em" type="number" name={{product['id']}} value={{product['quantity']}} min=1 max={{product['stock']}} size=1></input>
+        </form></td>
+         
+        <td><form action="/cart" method="POST">
+          <button name="remove_from_cart" value={{product['id']}}>Remove From Cart</button>
+        </form></td>
+       </tr>
+      {% endfor %}
+     
+    </table>
+    <form action="/cart" method="POST">
+      <button name="remove_from_cart" value="everything">Clear Cart</button>
+    </form>
+
+    <form action="/check_out" method="POST">
+      <button name="check_out" value="check_out">Check Out</button>
+    </form>
+</html>

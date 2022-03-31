@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<head> 
+	<title>Shopping Cart</title>
+  <link href="../static/home.css" rel="stylesheet" type="text/css" />
+</head>
+  <body>
+    <div class="navbar">
+      <a href="/">Products</a>
+      <a href="category_Armor">Armor</a>
+      <a href="category_Food">Food</a>
+      <a href="category_Enchanted Books">Enchanted Books</a>
+      <div class="dropdown">
+        <button class="dropbtn">Account</button>
+        <div class="dropdown-content">
+          <a href="logout">Log Out</a>
+          <a href="cart">Shopping Cart</a>
+          <a href="orders">Orders</a>
+        </div>
+      </div>
+      <form style="display:inline;float:right" method="GET" action="/order-search">
+        <input placeholder="Search Orders..." type="text" name="orderquery">
+      </form>
+    </div>
+    {% if "email" in session %}
+    <h1>{{session['fname']}}'s Orders</h1>
+    {% endif %}
+    <div class="order-dropdown">
+      <button class="order-dropbtn">Sort By</button>
+      <div class="order-dropdown-content">
+        <a href="orders_desc">Most Recent</a>
+        <a href="orders_asc">Least Recent</a>
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    {% for order in orders %}
+      <table>
+        <tr>
+          <th>Order ID</th>
+          <th>Date Ordered</th>
+          <th>Total Price</th>
+        </tr>
+         <tr>
+          <td style="text-align:center"> {{order['order_id']}}</td>
+          <td style="text-align:center"> {{order['date_ordered']}}</td>
+          <td style="text-align:center"> {{order['total']}}<img src="/static/images/Emerald.jpg" style="width:20px;height:20px;margin-bottom:-4px"></td>
+         </tr>
+        </table>
+          <table>
+            <tr>
+              <th>Item</th>
+              <th>Quantity</th>
+            </tr>
+            {% for order_item in order_items %}
+              {% if order_item['order_id'] == order['order_id'] %}
+                <tr>
+                    <td>
+                      <div class="item">
+                      <img src="/static/images/{{order_item['id']}}.jpg" style="width:100px;height:100px;">
+                      <span>{{order_item['name']}}</span>
+                      </div>
+                    </td>
+                  <td style="text-align:center"> {{order_item['quantity']}}</td>
+                </tr>
+              {% endif %}
+            {% endfor %}
+          </table>
+    <br>
+    {% endfor %}
+  </body>
+</html>

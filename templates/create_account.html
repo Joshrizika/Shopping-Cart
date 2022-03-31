@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<head> 
+	<title> Create Account </title>
+</head>
+  <body>
+    <h1> Create Account </h1>
+    <form action="/create_account" method="POST">
+      <p><strong>{{error_message}}</strong></p>
+      <label>Email:</label><br>
+      <input placeholder = "Enter Email" type="text" name="email"><br>
+      <label>First Name:</label><br>
+      <input placeholder = "Enter First Name" type="text" name="fname">           <br>
+      <label>Last Name:</label><br>
+      <input placeholder = "Enter Last Name" type="text" name="lname"><br>
+      <label>Password:</label><br>
+      <input placeholder = "Enter Password" type="text" name="password">          <br>
+      <br>
+      <input type="submit", class="Create Account", name="Create Account", value="Create Account"><br>
+    </form>
+    <br>
+    <br>
+    <form action="/login">
+      <button>Already have an account?</button>
+    </form>
+    <br>
+    <br>
+    <form action="/">
+      <button>Back to Home</button>
+    </form>
+  </body>
+</html>

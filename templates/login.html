@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<head> 
+	<title> {{Login_Page}} </title>
+</head>
+  <body>
+    <h1> Login Form </h1>
+    <p><strong>{{errorMes}}</strong></p>
+    <form action="/login" method="POST">
+      <label>Email:</label><br>
+      <input placeholder = "Enter Email" type="text" name="email"><br>
+      <label>Password:</label><br>
+      <input placeholder = "Enter Password" type="text" name="password">          <br>
+      <br>
+      <button type="submit" class="button"><span>Login</span></button>
+      <br>
+      <br>
+      </form>
+      <form action="/create_account">
+        <button class="button">Create Account</button>
+      </form>
+      <br>
+      <br>
+    </form>
+    <form action="/">
+      <button>Back to Home</button>
+    </form>
+  </body>
+</html>
