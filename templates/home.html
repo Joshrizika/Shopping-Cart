@@ -58,7 +58,7 @@
           <td style="text-align:center"><em>Out of Stock</em></td>
         {% else %}
           {% if "email" in session %}
-            <td><form method="POST">
+            <td style="text-align:center"><form method="POST">
               <button name="add_to_cart" value={{product['id']}}>Add To Cart</button>
             </form></td>
           {% else %}
